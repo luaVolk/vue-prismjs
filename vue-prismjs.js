@@ -10,11 +10,6 @@ function noop() {}
 function tryRequirePlugin(plugin, warnings) {
   try {
     require('prismjs/plugins/' + plugin + '/prism-' + plugin);
-    try {
-      require('prismjs/plugins/' + plugin + '/prism-' + plugin + '.css');
-    } catch (err) {
-      noop(err);
-    }
     return true;
   } catch (err) {
     if (warnings) {
