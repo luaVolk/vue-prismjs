@@ -62,7 +62,9 @@ var Prism$2 = { render: function render() {
       };
     },
     codeClass: function codeClass() {
-      return _defineProperty({}, 'language-' + this.language, true);
+      return _defineProperty({
+        'match-braces': this.hasPlugin('match-braces')
+      }, 'language-' + this.language, true);
     }
   },
   methods: {
