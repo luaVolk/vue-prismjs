@@ -49,6 +49,12 @@ var Prism$2 = { render: function render() {
         return code.replace(/\s+data-v-\S+="[^"]*"/g, '');
       }
     },
+    postRender: {
+      type: Function,
+      default: function _default(code) {
+        return code;
+      }
+    },
     warn: {
       type: Boolean,
       default: false
@@ -96,6 +102,7 @@ var Prism$2 = { render: function render() {
       this.$nextTick(function () {
         _this.$refs.code.textContent = _this.preRender(_this.codeText, _this);
         Prism.highlightElement(_this.$refs.code);
+        _this.$refs.code.innerHTML = _this.postRender(this.$refs.code.innerHTML, _this);
       });
     },
     hasPlugin: function hasPlugin(plugin) {
